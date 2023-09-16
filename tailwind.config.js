@@ -50,6 +50,9 @@ module.exports = {
         "rgba(131,58,180,1)",
         "#121212",
       ],
+      animation: {
+        "spin-slow": "spin 8s linear infinite",
+      },
     },
   },
   plugins: [],
