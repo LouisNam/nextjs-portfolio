@@ -7,6 +7,7 @@ import React, { useRef } from "react";
 import Articles1 from "../../public/images/articles/create loading screen in react js.jpg";
 import Articles2 from "../../public/images/articles/create modal component in react using react portals.png";
 import { easeInOut, motion, useMotionValue } from "framer-motion";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -102,6 +103,7 @@ const Articles = () => {
         <title>Tee York | Articles Page</title>
         <meta name="description" content="Articles" />
       </Head>
+      <TransitionEffect />
       <main className="flex flex-col items-center justify-center w-full mb-16 overflow-hidden dark:text-light">
         <Layout className="pt-16">
           <AnimatedText text="Words Can Change The World!" className="mb-16" />

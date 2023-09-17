@@ -7,6 +7,7 @@ import Head from "next/head";
 import AnimatedText from "@/components/AnimatedText";
 import { GithubIcon } from "@/components/Icons";
 import { motion } from "framer-motion";
+import TransitionEffect from "@/components/TransitionEffect";
 
 const FramerImage = motion(Image);
 
@@ -108,6 +109,7 @@ const Projects = () => {
         <title>Tee York | Project Page</title>
         <meta name="description" content="My projects" />
       </Head>
+      <TransitionEffect />
       <main className="flex flex-col items-center justify-center w-full mb-16 dark:text-light">
         <Layout className="pt-16">
           <AnimatedText
