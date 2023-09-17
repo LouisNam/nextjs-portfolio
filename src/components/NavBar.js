@@ -10,7 +10,10 @@ import {
   LinkedInIcon,
   GithubIcon,
   DribbbleIcon,
+  SunIcon,
+  MoonIcon,
 } from "./Icons";
+import useThemeSwitcher from "./hooks/useThemeSwitcher";
 
 const CustomLink = ({ href, title, className = "" }) => {
   const router = useRouter();
@@ -19,7 +22,7 @@ const CustomLink = ({ href, title, className = "" }) => {
       {title}
       <span
         className={twMerge(
-          "h-[1px] inline-block bg-dark absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300",
+          "h-[1px] inline-block bg-dark absolute left-0 -bottom-0.5 group-hover:w-full transition-[width] ease duration-300 dark:bg-light",
           router.asPath === href ? "w-full" : "w-0"
         )}
       >
@@ -44,8 +47,10 @@ const CustomSocialLink = ({ children, href, className = "" }) => {
 };
 
 const NavBar = () => {
+  const [mode, setMode] = useThemeSwitcher();
+
   return (
-    <div className="flex items-center justify-between w-full px-32 py-8 font-medium">
+    <header className="flex items-center justify-between w-full px-32 py-8 font-medium dark:text-light">
       <nav>
         <CustomLink href="/" title="Home" className="mr-4" />
         <CustomLink href="/about" title="About" className="mx-4" />
@@ -62,17 +67,31 @@ const NavBar = () => {
         <CustomSocialLink href="/" className="mx-3">
           <LinkedInIcon />
         </CustomSocialLink>
-        <CustomSocialLink href="/" className="mx-3">
+        <CustomSocialLink href="/" className="mx-3 rounded-full bg-light">
           <PinterestIcon />
         </CustomSocialLink>
         <CustomSocialLink href="/" className="ml-3">
           <DribbbleIcon />
         </CustomSocialLink>
+        <button
+          type="button"
+          className={twMerge(
+            "flex items-center justify-center p-1 ml-3 rounded-full",
+            mode === "light" ? "bg-dark text-light" : "bg-light text-dark"
+          )}
+          onClick={() => setMode(mode === "light" ? "dark" : "light")}
+        >
+          {mode === "dark" ? (
+            <SunIcon className="fill-dark" />
+          ) : (
+            <MoonIcon className="fill-dark" />
+          )}
+        </button>
       </nav>
       <div className="absolute left-[50%] top-2 translate-x-[-50%]">
         <Logo />
       </div>
-    </div>
+    </header>
   );
 };
 

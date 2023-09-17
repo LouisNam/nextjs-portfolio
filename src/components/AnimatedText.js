@@ -34,7 +34,7 @@ const AnimatedText = ({ text, className = "" }) => {
     <div className="flex items-center justify-center w-full py-2 mx-auto overflow-hidden text-center">
       <motion.h1
         className={twMerge(
-          "inline-block w-full text-dark font-bold capitalize text-8xl",
+          "inline-block w-full text-dark font-bold capitalize text-8xl dark:text-light",
           className
         )}
         variants={quote}
