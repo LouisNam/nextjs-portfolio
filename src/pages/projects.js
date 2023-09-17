@@ -6,6 +6,9 @@ import Image from "next/image";
 import Head from "next/head";
 import AnimatedText from "@/components/AnimatedText";
 import { GithubIcon } from "@/components/Icons";
+import { motion } from "framer-motion";
+
+const FramerImage = motion(Image);
 
 const FeaturedProject = ({ type, title, summary, img, link, github }) => {
   return (
@@ -16,7 +19,13 @@ const FeaturedProject = ({ type, title, summary, img, link, github }) => {
         target="_blank"
         className="w-1/2 overflow-hidden rounded-lg cursor-pointer"
       >
-        <Image src={img} alt={title} className="w-full h-auto" />
+        <FramerImage
+          src={img}
+          alt={title}
+          className="w-full h-auto"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        />
       </Link>
       <div className="flex flex-col items-start justify-between w-1/2 pl-6">
         <span className="text-xl font-medium text-primary">{type}</span>
@@ -54,7 +63,13 @@ const Project = ({ title, type, img, link, github }) => {
         target="_blank"
         className="w-full overflow-hidden rounded-lg cursor-pointer"
       >
-        <Image src={img} alt={title} className="w-full h-auto" />
+        <FramerImage
+          src={img}
+          alt={title}
+          className="w-full h-auto"
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.2 }}
+        />
       </Link>
       <div className="flex flex-col items-start justify-between w-full pl-6">
         <span className="text-xl font-medium text-primary">{type}</span>
